@@ -6,9 +6,7 @@ namespace Lab_8_
     static class TaskThree
     {
         private static readonly List<string> _originalList = new() { "code", "doce", "ecod", "framer", "frame" };
-
         private static List<bool> _isAnagrams = new();
-
         private static List<string> _resultList = new();
 
         /// <summary>

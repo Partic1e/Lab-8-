@@ -7,36 +7,29 @@ namespace Lab_8_
 {
     class Subtitles
     {
-        public string _position;
+        public string Position;
+        public string Color;
+        public int StartTime;
+        public int EndTime;
+        public string Words;
 
-        public string _color;
-
-        public int _startTime;
-
-        public int _endTime;
-
-        public string _text;
-
-        public Subtitles(string place, string color, int startTime, int endTime, string text)
+        public Subtitles(string place, string color, int startTime, int endTime, string words)
         {
-            _position = place;
-            _color = color;
-            _startTime = startTime;
-            _endTime = endTime;
-            _text = text;
+            Position = place;
+            Color = color;
+            StartTime = startTime;
+            EndTime = endTime;
+            Words = words;
         }
     }
     
     static class TaskOne
     {
-        private static readonly int _width = 100;
-        
+        private static readonly int _width = 100;        
         private static readonly int _height = 30;
 
-        static Timer _aTimer;
-        
-        static int _time = 0;
-        
+        static Timer _aTimer;        
+        static int _time = 0;        
         static List<Subtitles> _subtitles;
 
         public static void StartSubtitles()
@@ -74,9 +67,9 @@ namespace Lab_8_
         {
             foreach (Subtitles subtitle in _subtitles)
             {
-                if (subtitle._startTime == _time)
+                if (subtitle.StartTime == _time)
                     Write(subtitle);
-                else if (subtitle._endTime == _time)
+                else if (subtitle.EndTime == _time)
                     Delete(subtitle);
             }
             _time++;
@@ -84,8 +77,8 @@ namespace Lab_8_
 
         private static void Delete(Subtitles subtitle)
         {
-            SetPosition(subtitle._position, subtitle._text.Length);
-            for (int i = 0; i < subtitle._text.Length; i++)
+            SetPosition(subtitle.Position, subtitle.Words.Length);
+            for (int i = 0; i < subtitle.Words.Length; i++)
                 Console.Write(" ");
         }
 
@@ -112,9 +105,9 @@ namespace Lab_8_
         }
         private static void Write(Subtitles subtitle)
         {
-            SetPosition(subtitle._position, subtitle._text.Length);
-            Console.ForegroundColor = SetColor(subtitle._color);
-            Console.WriteLine(subtitle._text);
+            SetPosition(subtitle.Position, subtitle.Words.Length);
+            Console.ForegroundColor = SetColor(subtitle.Color);
+            Console.WriteLine(subtitle.Words);
         }
 
         /// <summary>

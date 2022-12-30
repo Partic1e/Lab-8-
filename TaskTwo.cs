@@ -7,11 +7,8 @@ namespace Lab_8_
     static class TaskTwo
     {
         private static List<string> _date = new();
-
         private static List<int> _money = new();
-
         private static List<string> _operation = new();
-
         private static List<int> _result = new();
 
         /// <summary>
@@ -81,7 +78,13 @@ namespace Lab_8_
         public static void GetRequest()
         {
             Console.WriteLine("Введите дату и время совершённой операции");
-            string inputData = Console.ReadLine();
+            string inputData;
+            while (true)
+            {
+                inputData = Console.ReadLine();
+                if (DateTime.TryParse(inputData, out DateTime date) && inputData.Length == 16)
+                    break;
+            }
             ReadFile();
             WriteResult(inputData);
         }
