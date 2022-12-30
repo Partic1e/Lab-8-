@@ -6,13 +6,13 @@ namespace Lab_8_
 {
     static class TaskTwo
     {
-        public static List<string> _date = new List<string>();
+        public static List<string> _date = new();
 
-        public static List<int> _money = new List<int>();
+        public static List<int> _money = new();
 
-        public static List<string> _operation = new List<string>();
+        public static List<string> _operation = new();
 
-        public static List<int> _result = new List<int>();
+        public static List<int> _result = new();
 
         /// <summary>
         /// Считывает данные с файла
