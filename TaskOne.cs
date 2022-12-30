@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Timers;
 using System.IO;
-using System.Drawing;
 
 namespace Lab_8_
 {
