@@ -48,7 +48,7 @@ namespace Lab_8_
             if (!string.IsNullOrEmpty(inputData))
                 Console.WriteLine(_result[_date.IndexOf(inputData)]);
             else
-                Console.WriteLine(_result[_result.Count - 1]);
+                Console.WriteLine(_result[^1]);
         }
 
         /// <summary>

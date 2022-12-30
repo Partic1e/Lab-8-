@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Timers;
 using System.IO;
+using System.Drawing;
 
 namespace Lab_8_
 {
@@ -113,7 +114,7 @@ namespace Lab_8_
         private static void Write(Subtitles subtitle)
         {
             SetPosition(subtitle._position, subtitle._text.Length);
-            SetColor(subtitle._color);
+            Console.ForegroundColor = SetColor(subtitle._color);
             Console.WriteLine(subtitle._text);
         }
 
@@ -121,23 +122,16 @@ namespace Lab_8_
         /// Определяет цвет текста
         /// </summary>
         /// <param name="color"></param>
-        private static void SetColor(string color)
+        private static ConsoleColor SetColor(string color)
         {
-            switch (color)
+            Dictionary<string, ConsoleColor> keyValuePairs = new()
             {
-                case "Red":
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    break;
-                case "Green":
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    break;
-                case "Blue":
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    break;
-                case "White":
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-            }
+                { "Red", ConsoleColor.Red },
+                { "Green", ConsoleColor.Green },
+                { "Blue", ConsoleColor.Blue },
+                { "White", ConsoleColor.White }
+            };
+            return keyValuePairs[color];
         }
 
         /// <summary>
