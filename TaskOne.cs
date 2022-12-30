@@ -123,14 +123,14 @@ namespace Lab_8_
         /// <param name="color"></param>
         private static ConsoleColor SetColor(string color)
         {
-            Dictionary<string, ConsoleColor> keyValuePairs = new()
+            Dictionary<string, ConsoleColor> setColor = new()
             {
                 { "Red", ConsoleColor.Red },
                 { "Green", ConsoleColor.Green },
                 { "Blue", ConsoleColor.Blue },
                 { "White", ConsoleColor.White }
             };
-            return keyValuePairs[color];
+            return setColor[color];
         }
 
         /// <summary>

@@ -6,18 +6,18 @@ namespace Lab_8_
 {
     static class TaskTwo
     {
-        public static List<string> _date = new();
+        private static List<string> _date = new();
 
-        public static List<int> _money = new();
+        private static List<int> _money = new();
 
-        public static List<string> _operation = new();
+        private static List<string> _operation = new();
 
-        public static List<int> _result = new();
+        private static List<int> _result = new();
 
         /// <summary>
         /// Считывает данные с файла
         /// </summary>
-        public static void ReadFile()
+        private static void ReadFile()
         {
             string[] line = File.ReadAllLines("task2test.txt");
             _result.Add(int.Parse(line[0]));
@@ -40,10 +40,10 @@ namespace Lab_8_
         }
 
         /// <summary>
-        /// Проверяет, является ли введённая строка пустой
+        /// Проверяет, является ли введённая строка пустой выводит результат работы программы
         /// </summary>
         /// <param name="inputData"></param>
-        public static void CheckEmptyString(string inputData)
+        private static void WriteResult(string inputData)
         {
             if (!string.IsNullOrEmpty(inputData))
                 Console.WriteLine(_result[_date.IndexOf(inputData)]);
@@ -55,9 +55,9 @@ namespace Lab_8_
         /// Считывает операции с файла
         /// </summary>
         /// <param name="i"></param>
-        public static void Operation(int i)
+        private static void Operation(int i)
         {
-            int result = new();
+            int result = default;
             switch (_operation[i])
             {
                 case "in":
@@ -83,14 +83,14 @@ namespace Lab_8_
             Console.WriteLine("Введите дату и время совершённой операции");
             string inputData = Console.ReadLine();
             ReadFile();
-            CheckEmptyString(inputData);
+            WriteResult(inputData);
         }
 
         /// <summary>
         /// Проверяет корректность данных в файле
         /// </summary>
         /// <param name="result"></param>
-        public static void CheckError(int result)
+        private static void CheckError(int result)
         {
             if (result < 0)
             {
