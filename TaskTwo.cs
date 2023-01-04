@@ -77,15 +77,23 @@ namespace Lab_8_
         /// </summary>
         public static void GetRequest()
         {
+            ReadFile();
             Console.WriteLine("Введите дату и время совершённой операции");
             string inputData;
+            bool access = false;
             while (true)
             {
                 inputData = Console.ReadLine();
-                if (DateTime.TryParse(inputData, out DateTime date) && inputData.Length == 16)
+                for (int i = 0; i < _date.Count; i++)
+                {
+                    if (inputData == _date[i] || inputData == string.Empty)
+                        access = true;   
+                }
+                if (access)
                     break;
+                else
+                    Console.WriteLine("Введите данные корректно");
             }
-            ReadFile();
             WriteResult(inputData);
         }
 
